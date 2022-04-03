@@ -16,3 +16,12 @@
 # print("successfully downloaded the video")
 
 
+#  ******** playlist downloading ************
+from pytube import Playlist
+
+py = Playlist("https://www.youtube.com/playlist?list=PL0ZxPmRjddXu7jC2HrltJhbqpFXq2D_Ij")
+
+print(f'downloading : {py.title}')
+
+for video in py.videos:
+    video.streams.first().download()
